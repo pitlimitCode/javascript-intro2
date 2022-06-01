@@ -1,7 +1,3 @@
-// Buatlah program searching nama 
-// Jumlah output dibatasi 3
-// Menerapkan callback function
-
 const name = [
   "Abigail", "Alexandra", "Alison",
   "Amanda", "Angela", "Bella",
