@@ -1,5 +1,5 @@
 /*
-1.	Buat dan jelaskanlah 10 method bawaan JavaScript (Built-in Functions) beserta contoh penggunaannya(kecuali : split, reverse, join, foreach, map)
+10 method bawaan JavaScript (Built-in Functions)
 
 splice()
 slice()
