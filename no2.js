@@ -8,29 +8,28 @@ const name = [
 ]
 
 function searchName(req, limit, shuffleArray) {
-  // Memindahkan data array yang berisi string 'req',
-  //  ke data array yang baru .
+  // Memindahkan data array yang memiliki karakter
+  // sesuai permintaan, ke data array yang baru .
   const reqArray = [];
   for(i=0 ; i<name.length-1 ; i++) {
     if (name[i].toLowerCase().includes(req) == true) {
       reqArray.push(name[i]);
     } 
   }
-  shuffleArray(reqArray); // Proses ke Callback function
-  // Membatasi banyak data array yang ingin ditampilkan
+  
+  shuffleArray(reqArray); // Ke Callback function.
+
+  // Membatasi banyak data array yang ingin ditampilkan.
   reqArray.splice(limit);
-  // Output.
-  console.log(reqArray);
+
+  console.log(reqArray); // Output.
 }
 
 // Callback.
 // Mengacak data array.
 function callback(shuffle) {
-  for (let i = shuffle.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [shuffle[i], shuffle[j]] = [shuffle[j], shuffle[i]];
-  }
+  shuffle.sort(_ => Math.random() - 0.5);
 }
 
-// Perintah
+// Perintah.
 searchName("an", 3, callback);
