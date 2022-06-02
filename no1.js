@@ -5,8 +5,9 @@ slice()
 n.includes()
 Array.shift()
 Array.pop()
+Array.filter
 Math.floor()
 Math.random()
-.. 3 lainnya  yang anti-mainstream
+.. 2 lainnya  yang anti-mainstream
 
 */
