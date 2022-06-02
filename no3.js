@@ -10,9 +10,6 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
     // Mengurutkan angka pada array data
     dataArray.sort(function(a, b){return a - b});
     
-
-    // // mungkinisa pakai method filter ????
-
     // Menghapus data array urutan pertama yang lebih kecil dari nilaiAwal
     while (nilaiAwal > dataArray[0]) { dataArray.shift() }
     // Menghapus data array urutan terakhir yang lebih besar dari nilaiAkhir
