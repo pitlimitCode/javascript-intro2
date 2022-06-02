@@ -1,3 +1,4 @@
+// Data Array, 16 item.
 const name = [
   "Abigail", "Alexandra", "Alison",
   "Amanda", "Angela", "Bella",
@@ -7,29 +8,29 @@ const name = [
 ]
 
 function searchName(req, limit, shuffleArray) {
-  // data array yang berisi string sesuai 'req', di isi ke data array baru 
+  // Memindahkan data array yang berisi string 'req',
+  //  ke data array yang baru .
   const reqArray = [];
   for(i=0 ; i<name.length-1 ; i++) {
     if (name[i].toLowerCase().includes(req) == true) {
       reqArray.push(name[i]);
     } 
   }
-  
-  shuffleArray(reqArray); // proses ke callback function
-  
-  // batas banyak data array yang ingin ditampilkan
+  shuffleArray(reqArray); // Proses ke Callback function
+  // Membatasi banyak data array yang ingin ditampilkan
   reqArray.splice(limit);
-
-  // output
+  // Output.
   console.log(reqArray);
 }
 
+// Callback.
+// Mengacak data array.
 function callback(shuffle) {
-  // shuffleArray, ...
   for (let i = shuffle.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
   [shuffle[i], shuffle[j]] = [shuffle[j], shuffle[i]];
   }
 }
 
+// Perintah
 searchName("an", 3, callback);
