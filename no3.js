@@ -7,16 +7,19 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
     console.log("Jumlah angka dalam dataArray harus lebih dari 5");
   } else {
     
-    // Mengurutkan angka pada array data
-    dataArray.sort(function(a, b){return a - b});
-    
-    // Menghapus data array urutan pertama yang lebih kecil dari nilaiAwal
-    while (nilaiAwal > dataArray[0]) { dataArray.shift() }
-    // Menghapus data array urutan terakhir yang lebih besar dari nilaiAkhir
-    while (nilaiAkhir < dataArray[dataArray.length - 1]) {
-      dataArray.pop()
+    // Filter method, callback
+    function saring (n) {
+      return n > nilaiAwal && n < nilaiAkhir;
     }
+    dataArray = dataArray.filter(saring);
+    // console.log(dataArray);
     
+    // Mengurutkan angka pada array data
+    dataArray.sort(function(a, b) {
+      return a - b
+    } );
+    // console.log(dataArray);
+
     // Output
     if (dataArray.length == 0) {
       console.log("Nilai tidak ditemukan”");
@@ -28,6 +31,10 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
 
 seleksiNilai(5, 20 , [2, 25, 4, 14, 17, 30, 8]);
 // Output: [8, 14, 17]
+// const tes = [2, 25, 4, 14, 17, 30, 8];
+// console.log(tes);
+// seleksiNilai(5, 20 , tes);
+// console.log(tes);
 
 // seleksiNilai(15, 3 , [2, 25, 4, 14, 17, 30, 8]);
 // Output: “Nilai akhir harus lebih besar dari nilai awal”
