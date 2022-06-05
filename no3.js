@@ -1,30 +1,43 @@
 function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
-  // Validasi nilaiAkhir < nilaiAwal
-  if(nilaiAkhir < nilaiAwal){
-    console.log("Nilai akhir harus lebih besar dari nilai awal");
-  // Validasi dataArray.length <= 5 
-  } else if (dataArray.length <= 5) {
-    console.log("Jumlah angka dalam dataArray harus lebih dari 5");
+  if (typeof(nilaiAwal) !== "number"
+   || typeof(nilaiAkhir) !== "number" 
+   || Array.isArray(dataArray) != true ) {
+        if(typeof(nilaiAwal) !== "number"){
+          console.log("nilaiAwal harus angka");
+        }
+        if(typeof(nilaiAkhir) !== "number"){
+          console.log("nilaiAkhir harus angka");
+        }
+        if(Array.isArray(dataArray) != true){
+          console.log("datArray harus bertipe data array");
+        }
   } else {
-    
-    // Filter method, callback
-    function saring (n) {
-      return n > nilaiAwal && n < nilaiAkhir;
-    }
-    dataArray = dataArray.filter(saring);
-    // console.log(dataArray);
-    
-    // Mengurutkan angka pada array data
-    dataArray.sort(function(a, b) {
-      return a - b
-    } );
-    // console.log(dataArray);
 
-    // Output
-    if (dataArray.length == 0) {
-      console.log("Nilai tidak ditemukan”");
+    // Validasi nilaiAkhir < nilaiAwal
+    if(nilaiAkhir < nilaiAwal){
+      console.log("Nilai akhir harus lebih besar dari nilai awal");
+    // Validasi dataArray.length <= 5 
+    } else if (dataArray.length <= 5) {
+      console.log("Jumlah angka dalam dataArray harus lebih dari 5");
     } else {
-      console.log(dataArray);
+      
+      // Method Filter
+      function saring(n) {
+        return n > nilaiAwal && n < nilaiAkhir;
+      }
+      dataArray = dataArray.filter(saring);
+      
+      // Mengurutkan angka pada array data
+      dataArray.sort(function(a, b) { 
+        return a - b
+      } );
+
+      // Output
+      if (dataArray.length == 0) {
+        console.log("Nilai tidak ditemukan");
+      } else {
+        console.log(dataArray);
+      }
     }
   }
 }
