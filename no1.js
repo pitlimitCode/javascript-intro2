@@ -1,6 +1,3 @@
-// 1.	Buat dan jelaskanlah 10 method bawaan JavaScript (Built-in Functions)
-// beserta contoh penggunaannya (kecuali : split, reverse, join, foreach, map)
-
 // // 1. String-Number dan Number-String.
 // // to.string, mengubah angka yang bertipe data number menjadi tipe data string
 // let test = 2;
