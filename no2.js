@@ -8,21 +8,26 @@ const name = [
 ]
 
 function searchName(req, limit, shuffleArray) {
-  // Memindahkan data array yang memiliki karakter
-  // sesuai permintaan, ke data array yang baru .
-  const reqArray = [];
-  for(i=0 ; i<name.length-1 ; i++) {
-    if (name[i].toLowerCase().includes(req) == true) {
-      reqArray.push(name[i]);
-    } 
+
+  if (isNaN(limit)) {
+    console.log("Data kedua harus angka, sebagai batas output yang diinginkan.");
+  } else {
+    // Memindahkan data array yang memiliki karakter
+    // sesuai permintaan, ke data array yang baru .
+    const reqArray = [];
+    for(i=0 ; i<name.length-1 ; i++) {
+      if (name[i].toLowerCase().includes(req) == true) {
+        reqArray.push(name[i]);
+      } 
+    }
+    
+    shuffleArray(reqArray); // Ke Callback function.
+
+    // Membatasi banyak data array yang ingin ditampilkan.
+    reqArray.splice(limit);
+
+    console.log(reqArray); // Output.
   }
-  
-  shuffleArray(reqArray); // Ke Callback function.
-
-  // Membatasi banyak data array yang ingin ditampilkan.
-  reqArray.splice(limit);
-
-  console.log(reqArray); // Output.
 }
 
 // Callback.
@@ -32,4 +37,4 @@ function callback(shuffle) {
 }
 
 // Perintah.
-searchName("an", 3, callback);
+searchName("an", "3", callback);
