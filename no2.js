@@ -8,15 +8,15 @@ const name = [
 ]
 
 function searchName(req, limit, shuffleArray) {
-
+  // Validasi data limit angka (NaN)
   if (isNaN(limit)) {
     console.log("Data kedua harus angka, sebagai batas output yang diinginkan.");
   } else {
     // Memindahkan data array yang memiliki karakter
-    // sesuai permintaan, ke data array yang baru .
+    // sesuai permintaan, ke data array yang baru.
     const reqArray = [];
-    for(i=0 ; i<name.length-1 ; i++) {
-      if (name[i].toLowerCase().includes(req) == true) {
+    for(i=0 ; i<name.length ; i++) {
+      if (name[i].toLowerCase().includes(req.toLowerCase()) == true) {
         reqArray.push(name[i]);
       } 
     }
