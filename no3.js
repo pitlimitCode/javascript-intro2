@@ -1,4 +1,5 @@
 function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
+  // Validasi tahap pertama: nilaiAwal, nilaiAkhir, dataArray
   if (typeof(nilaiAwal) !== "number"
    || typeof(nilaiAkhir) !== "number" 
    || Array.isArray(dataArray) != true ) {
@@ -13,19 +14,23 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
         }
   } else {
 
-    // Validasi nilaiAkhir < nilaiAwal
-    if(nilaiAkhir < nilaiAwal){
-      console.log("Nilai akhir harus lebih besar dari nilai awal");
-    // Validasi dataArray.length <= 5 
-    } else if (dataArray.length <= 5) {
-      console.log("Jumlah angka dalam dataArray harus lebih dari 5");
+    // Validasi tahap kedua: 'nilaiAkhir < nilaiAwal' dan banyak dataArray
+    if(nilaiAkhir < nilaiAwal || dataArray.length <= 5){
+      // Validasi nilaiAkhir < nilaiAwal
+      if(nilaiAkhir < nilaiAwal) {
+        console.log("Nilai akhir harus lebih besar dari nilai awal");
+      }
+      // Validasi dataArray.length <= 5 
+      if (dataArray.length <= 5) {
+        console.log("Jumlah angka dalam dataArray harus lebih dari 5");
+      }
+
     } else {
       
-      // Method Filter
-      function saring(n) {
+      // Filter nilaiAwal dan nilaiAkhir
+      dataArray = dataArray.filter((n) => { 
         return n > nilaiAwal && n < nilaiAkhir;
-      }
-      dataArray = dataArray.filter(saring);
+      });
       
       // Mengurutkan angka pada array data
       dataArray.sort(function(a, b) { 
@@ -33,10 +38,10 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
       } );
 
       // Output
-      if (dataArray.length == 0) {
-        console.log("Nilai tidak ditemukan");
-      } else {
-        console.log(dataArray);
+      (dataArray.length == 0)
+      ? console.log("Nilai tidak ditemukan")
+      : console.log(dataArray)
+      
       }
     }
   }
