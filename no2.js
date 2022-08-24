@@ -30,8 +30,7 @@ function searchName(req, limit, shuffleArray) {
   }
 }
 
-// Callback.
-// Mengacak data array.
+// Callback, mengacak data array.
 function callback(shuffle) {
   shuffle.sort(_ => Math.random() - 0.5);
 }

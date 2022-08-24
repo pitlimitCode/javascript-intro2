@@ -1,23 +1,23 @@
-function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
+function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray) {
   // Validasi tahap pertama: nilaiAwal, nilaiAkhir, dataArray
-  if (typeof(nilaiAwal) !== "number"
-   || typeof(nilaiAkhir) !== "number" 
-   || Array.isArray(dataArray) != true ) {
-        if(typeof(nilaiAwal) !== "number"){
-          console.log("nilaiAwal harus angka");
-        }
-        if(typeof(nilaiAkhir) !== "number"){
-          console.log("nilaiAkhir harus angka");
-        }
-        if(Array.isArray(dataArray) != true){
-          console.log("datArray harus bertipe data array");
-        }
+  if (typeof (nilaiAwal) !== "number"
+    || typeof (nilaiAkhir) !== "number"
+    || Array.isArray(dataArray) != true) {
+    if (typeof (nilaiAwal) !== "number") {
+      console.log("nilaiAwal harus angka");
+    }
+    if (typeof (nilaiAkhir) !== "number") {
+      console.log("nilaiAkhir harus angka");
+    }
+    if (Array.isArray(dataArray) != true) {
+      console.log("datArray harus bertipe data array");
+    }
   } else {
 
     // Validasi tahap kedua: 'nilaiAkhir < nilaiAwal' dan banyak dataArray
-    if(nilaiAkhir < nilaiAwal || dataArray.length <= 5){
+    if (nilaiAkhir < nilaiAwal || dataArray.length <= 5) {
       // Validasi nilaiAkhir < nilaiAwal
-      if(nilaiAkhir < nilaiAwal) {
+      if (nilaiAkhir < nilaiAwal) {
         console.log("Nilai akhir harus lebih besar dari nilai awal");
       }
       // Validasi dataArray.length <= 5 
@@ -26,28 +26,27 @@ function seleksiNilai(nilaiAwal, nilaiAkhir, dataArray){
       }
 
     } else {
-      
+
       // Filter nilaiAwal dan nilaiAkhir
-      dataArray = dataArray.filter((n) => { 
+      dataArray = dataArray.filter((n) => {
         return n > nilaiAwal && n < nilaiAkhir;
       });
-      
+
       // Mengurutkan angka pada array data
-      dataArray.sort(function(a, b) { 
+      dataArray.sort(function (a, b) {
         return a - b
-      } );
+      });
 
       // Output
       (dataArray.length == 0)
-      ? console.log("Nilai tidak ditemukan")
-      : console.log(dataArray)
-      
-      }
+        ? console.log("Nilai tidak ditemukan")
+        : console.log(dataArray)
+
     }
   }
 }
 
-seleksiNilai(5, 20 , [2, 25, 4, 14, 17, 30, 8]);
+seleksiNilai(5, 20, [2, 25, 4, 14, 17, 30, 8]);
 // Output: [8, 14, 17]
 // const tes = [2, 25, 4, 14, 17, 30, 8];
 // console.log(tes);
